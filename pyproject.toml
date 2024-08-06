@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "api-agent"
+version = "0.0.1"
+description = "AI Agent for building APIs"
+authors = ["TFC <contact@thefocusedcoder.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+controlflow = "0.8.2"
+langchain-anthropic = "0.1.22"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
