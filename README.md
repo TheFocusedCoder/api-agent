@@ -2,7 +2,7 @@
 
 ![Experimental](https://img.shields.io/badge/Status-Experimental-yellow)
 
-API-Agent is a powerful tool designed to create Python APIs faster by leveraging the Claude 3.5 Sonnet model. This project aims to streamline the API development process by using AI to generate code based on user prompts.
+API-Agent is a powerful tool designed to create micro Python APIs faster by leveraging the Claude 3.5 Sonnet model. This project aims to streamline the API development process by using AI to generate code based on user prompts.
 
 
 
@@ -38,35 +38,39 @@ This will create a new Codespace with all the necessary dependencies and configu
 
 For more information on using Dev Containers, refer to the [official documentation](https://code.visualstudio.com/docs/devcontainers/containers).
 
-## Installation
+### Run API Agent Locally
+⚠️ **Warning**: API-Agent has access to the file system and can perform remote code execution. It is strongly recommended to run it in a sandboxed environment or in a container.
 
-1. Clone the repository:
+1. Clone the repository
     ```
     git clone https://github.com/tfcbot/api-agent.git
     cd api-agent
     ```
+2. Install dependencies listed in devcontainer.json. 
 
-2. Install dependencies using Poetry:
+## Start the API Agent
+
+1. Install dependencies using Poetry:
     ```
     poetry install
     ```
 
-3. Set up your ANTHROPIC API key:
+2. Set up your ANTHROPIC API key:
     ```
     export ANTHROPIC_API_KEY=<your-api-key>
     ```
 
-## Run the agent
-1. Follow the prompts to describe the API you want to build. The AI will guide you through the process and generate the necessary code.
-
-        python apiagent.py
-
+3. Run the agent
+    ```
+    python apiagent.py
+    ```
+The agent will start and prompt you for the API you want to build. Follow the prompts to describe the API you want to build. The Agent will guide you through the process and generate the necessary code.
 
 ## Prompt Best Practices
 
 When describing your API requirements:
 - Be specific about the endpoints you want
-- Provide hints about implementation details
+- Provide hints about implementation details such as libraries to use and steps to take
 - Refer to the example prompts in the `example-prompts` directory for guidance
 
 
@@ -76,23 +80,24 @@ See the example prompts for what is working.
 
 This is a reference implementation meant for POCs, demos, and learning so there are some limitations. As of now there are no plans to add addtional features. 
 
-- The API Agent is may not always generate flawless code. It has access to the file system and can perform remote code execution, so it's recommended to run it in a sandboxed environment. 
+- The API Agent is may not always generate flawless code.
 - API agent only supports Claude 3.5 Sonnet model. 
 - Creating complex APIs with multiple endpoints (5+) and custom logic can be challenging for the Agent. Start with simple APIs and build up from there. 
 - The Agent has to be invoked with each subsequent prompt. Infinite loops are not supported. 
+- It is best to build stateless APIs that do not require complex database queries
 
 If you want to build a more complex API, consider using the [Software Engineer Agent](https://controlflow.ai/examples/agent-engineer) which this agent is based on. 
 
 
 ## Acknowledgements
 
-[Software Engineer Agent](https://controlflow.ai/examples/agent-engineer) by ControlFlow.ai for building controllable agents. 
+[ControlFlow](https://controlflow.ai/) for building predicatable agents. 
 
 [FastAPI](https://fastapi.tiangolo.com/) for simple and fast API development. 
 
 [Poetry](https://python-poetry.org/) for great dependency management. 
 
-[LangChain](https://python.langchain.com/docs/get_started/introduction) for managin llms.
+[LangChain](https://python.langchain.com/docs/get_started/introduction) for managing llms.
 
 [Claude 3.5 Sonnet](https://docs.anthropic.com/claude-3-sonnet/reference/claude-3-sonnet-model-parameters) for generating code. 
 

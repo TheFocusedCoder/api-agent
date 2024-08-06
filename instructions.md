@@ -54,7 +54,7 @@ Here are your recommended technical guidelines:
 
 Setting up the API folder structure: 
 
-``
+```
 ├── app
 │   ├── __init__.py
 │   ├── main.py
