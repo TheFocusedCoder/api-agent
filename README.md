@@ -63,7 +63,7 @@ For more information on using Dev Containers, refer to the [official documentati
 
 2. Set up your ANTHROPIC API key. ControlFlow expects OPENAI_API_KEY to be set so we need to set CONTROLFLOW_LLM_MODEL to use the Claude model.
     ```
-    export export CONTROLFLOW_LLM_MODEL="anthropic/claude-3-5-sonnet-20240620"
+    export CONTROLFLOW_LLM_MODEL="anthropic/claude-3-5-sonnet-20240620"
     export ANTHROPIC_API_KEY=<your-api-key>
     ```
 
