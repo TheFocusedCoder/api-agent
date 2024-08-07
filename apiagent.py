@@ -1,12 +1,18 @@
+import os
 from pathlib import Path
+from langchain_anthropic import ChatAnthropic
 import controlflow as cf
 import controlflow.tools.code
 import controlflow.tools.filesystem
 from pydantic import BaseModel
-from langchain_anthropic import ChatAnthropic
 
-# create the model
-model = ChatAnthropic(model='claude-3-5-sonnet-20240620')
+
+
+# Swap to Anthropic from OpenAI in controlflow
+model  = ChatAnthropic(
+    model_name='claude-3-5-sonnet-20240620', 
+    temperature=0.0, 
+) 
 
 # load the instructions
 instructions = open(Path(__file__).parent / "instructions.md").read()
@@ -31,7 +37,7 @@ class DesignDoc(BaseModel):
     criteria: str
 
 
-@cf.flow
+@cf.flow(agents=[agent])
 def run_agent():
 
     # the first task is to work with the user to create a design doc
@@ -78,3 +84,4 @@ def run_agent():
 
 if __name__ == "__main__":
     run_agent()
+    
