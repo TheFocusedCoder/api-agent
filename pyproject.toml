@@ -5,11 +5,13 @@ description = "AI Agent for building APIs"
 authors = ["TFC <contact@thefocusedcoder.com>"]
 license = "Apache 2.0"
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
 controlflow = "0.8.2"
 langchain-anthropic = "0.1.22"
+pydantic = "^2.8.2"
 
 
 [build-system]
