@@ -88,10 +88,10 @@ See the example prompts for what is working.
 
 This is a reference implementation meant for POCs, demos, and learning so there are some limitations. As of now there are no plans to add addtional features. 
 
-- The API Agent is may not always generate flawless code.
-- API agent only supports Claude 3.5 Sonnet model. 
+- The API Agent may not always generate flawless code.
+- API agent only supports Claude 3.5 Sonnet model. Other LLMs can be configured by modifying apiagent.py. 
 - Creating complex APIs with multiple endpoints (5+) and custom logic can be challenging for the Agent. Start with simple APIs and build up from there. 
-- The Agent has to be invoked with each subsequent prompt. Infinite loops are not supported. 
+- The Agent works on completing one prompt and cannot be interrupted. 
 - It is best to build stateless APIs that do not require complex database queries
 
 If you want to build a more complex API, consider using the [Software Engineer Agent](https://controlflow.ai/examples/agent-engineer) which this agent is based on. 
