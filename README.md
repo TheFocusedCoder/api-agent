@@ -1,10 +1,9 @@
 # API-Agent
 
-![Experimental](https://img.shields.io/badge/Status-Experimental-yellow)
+![Experimental](https://img.shields.io/badge/Status-Experimental-yellow)    
+
 
 API-Agent is a powerful tool designed to create micro Python APIs faster by leveraging the Claude 3.5 Sonnet model. This project aims to streamline the API development process by using AI to generate code based on user prompts.
-
-
 
 
 ## Features
@@ -55,8 +54,16 @@ For more information on using Dev Containers, refer to the [official documentati
     poetry install
     ```
 
-2. Set up your ANTHROPIC API key:
+
+2. Start a virtual environment
     ```
+    poetry shell
+    ```
+
+
+2. Set up your ANTHROPIC API key. ControlFlow expects OPENAI_API_KEY to be set so we need to set CONTROLFLOW_LLM_MODEL to use the Claude model.
+    ```
+    export export CONTROLFLOW_LLM_MODEL="anthropic/claude-3-5-sonnet-20240620"
     export ANTHROPIC_API_KEY=<your-api-key>
     ```
 
@@ -64,6 +71,7 @@ For more information on using Dev Containers, refer to the [official documentati
     ```
     python apiagent.py
     ```
+    
 The agent will start and prompt you for the API you want to build. Follow the prompts to describe the API you want to build. The Agent will guide you through the process and generate the necessary code.
 
 ## Prompt Best Practices
@@ -101,6 +109,6 @@ If you want to build a more complex API, consider using the [Software Engineer A
 
 [Claude 3.5 Sonnet](https://docs.anthropic.com/claude-3-sonnet/reference/claude-3-sonnet-model-parameters) for generating code. 
 
-## Contact
 
-If you have any questions or feedback, DM me on X [@focusedcoder](https://twitter.com/focusedcoder) on Twitter. 
+[![Sponsored by the Agent Developer Toolkit](https://img.shields.io/badge/Sponsored%20by-The%20Agent%20Developer%20Toolkit-blue?style=for-the-badge)](https://swiy.co/agent-toolkit)
+
