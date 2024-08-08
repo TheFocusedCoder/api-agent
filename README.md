@@ -8,15 +8,19 @@ API-Agent is a powerful tool designed to create micro Python APIs faster by leve
 
 ## Features
 
-- Supports rapid API prototyping
-- Generates project structure, including Dockerfile and necessary configuration files
-- Generates code for endpoints and custom logic
+-Supports rapid API prototyping with Python & Fast API
+-Generates project structure, code for endpoints custom logic according to coding instructions provided by user
+-Write a README draft for documentation
+-Deploys a working serverless endpoint
 
 
 ## Getting Started
 
 The easiest way to get started with API-Agent is by using GitHub Codespaces or a Dev Container. This ensures you have a consistent development environment with all the necessary dependencies pre-installed.
 
+To deploy a working endpoint you will need to have an Anthropic API key and modal set up. 
+- [Anthropic API Key](https://console.anthropic.com/account/keys)
+- [Modal Setup](https://modal.com/docs/guide)
 
 ### Quick Start with GitHub Codespaces
 
@@ -74,6 +78,7 @@ For more information on using Dev Containers, refer to the [official documentati
     
 The agent will start and prompt you for the API you want to build. Follow the prompts to describe the API you want to build. The Agent will guide you through the process and generate the necessary code.
 
+
 ## Prompt Best Practices
 
 When describing your API requirements:
@@ -83,6 +88,22 @@ When describing your API requirements:
 
 
 See the example prompts for what is working. 
+
+## Run Endpoint with Modal
+
+```
+cd work_dir
+modal serve <ENTRY_POINT_FILE>.py 
+```
+
+## Deploy to Modal
+
+```
+cd work_dir
+modal deploy <ENTRY_POINT_FILE>.py 
+```
+
+
 
 ## Known Limitations 
 
@@ -108,6 +129,8 @@ If you want to build a more complex API, consider using the [Software Engineer A
 [LangChain](https://python.langchain.com/docs/get_started/introduction) for managing llms.
 
 [Claude 3.5 Sonnet](https://docs.anthropic.com/claude-3-sonnet/reference/claude-3-sonnet-model-parameters) for generating code. 
+
+[Modal](https://modal.com/) for serverless deployment. 
 
 
 [![Sponsored by the Agent Developer Toolkit](https://img.shields.io/badge/Sponsored%20by-The%20Agent%20Developer%20Toolkit-blue?style=for-the-badge)](https://swiy.co/agent-toolkit)
