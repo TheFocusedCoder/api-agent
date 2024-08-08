@@ -109,6 +109,8 @@ If you want to build a more complex API, consider using the [Software Engineer A
 
 [Claude 3.5 Sonnet](https://docs.anthropic.com/claude-3-sonnet/reference/claude-3-sonnet-model-parameters) for generating code. 
 
+[Modal](https://modal.com/) for serverless deployment. 
+
 
 [![Sponsored by the Agent Developer Toolkit](https://img.shields.io/badge/Sponsored%20by-The%20Agent%20Developer%20Toolkit-blue?style=for-the-badge)](https://swiy.co/agent-toolkit)
 
