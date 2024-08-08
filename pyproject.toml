@@ -12,6 +12,7 @@ python = "^3.9"
 controlflow = "0.8.2"
 langchain-anthropic = "0.1.22"
 pydantic = "^2.8.2"
+modal = "^0.64.10"
 
 
 [build-system]
