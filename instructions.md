@@ -43,13 +43,13 @@ Document how to setup the API folder structure and the Dockerfile.
 - Project Title
 - Description
 - Installation Instructions
-- How to Run Locally ( Docker Container or just the API with uvicorn )
+- How to Run Locally 
 - Testing Instructions
 - License
 - Contributing Guidelines
 - Contact Information
 
-Here are your recommended technical guidelines you must follow when building the API: 
+Here are your recommended technical guidelines you must follow when building the API: You must use Modal Serverless and not use the old Stub functions. Refer to the Modal documentation in these instructions. 
 
 Setting up the API folder structure: 
 
@@ -57,38 +57,40 @@ Setting up the API folder structure:
 ├── app
 │   ├── __init__.py
 │   ├── main.py
-│   ├── test.py
-│   └── pyproject.toml
-├── Dockerfile
+│---test.py   
+|---pyproject.toml
 └── README.md
 ```
 
-
-Example of Dockerfile: 
+## Modal Documentation
+# Instructions for Building APIs with Modal Serverless 
 
 ```
-# Use the official FastAPI image from Docker Hub
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.9-2024-08-05
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
 
-# Set the working directory in the container
-WORKDIR /app
+from modal import Image, App, asgi_app
 
-# Copy only the pyproject.toml and poetry.lock files (if it exists)
-COPY app/pyproject.toml /app/
+web_app = FastAPI()
+app = App()
 
-# Install poetry
-RUN pip install poetry
+image = Image.debian_slim().pip_install("boto3")
 
-# Install dependencies
-RUN poetry config virtualenvs.create false \
-  && poetry install --no-interaction --no-ansi
 
-# Copy the rest of the application code
-COPY . /app
+@web_app.post("/foo")
+async def foo(request: Request):
+    body = await request.json()
+    return body
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
 
-# Run the FastAPI application
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+@web_app.get("/bar")
+async def bar(arg="world"):
+    return HTMLResponse(f"<h1>Hello Fast {arg}!</h1>")
+
+
+@app.function(image=image)
+@asgi_app()
+def fastapi_app():
+    return web_app
 ```
+
