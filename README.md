@@ -8,10 +8,10 @@ API-Agent is a powerful tool designed to create micro Python APIs faster by leve
 
 ## Features
 
--Supports rapid API prototyping with Python & Fast API
--Generates project structure, code for endpoints custom logic according to coding instructions provided by user
--Write a README draft for documentation
--Deploys a working serverless endpoint
+- Supports rapid API prototyping with Python & Fast API
+- Generates project structure, code for endpoints custom logic according to coding instructions provided by user
+- Write a README draft for documentation
+- Deploys a working serverless endpoint
 
 
 ## Getting Started
