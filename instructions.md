@@ -18,7 +18,7 @@ Setting up the API folder structure:
 ```
 
 ## Modal Documentation
-# Instructions for Building APIs with Modal Serverless 
+### Instructions for Building APIs with Modal Serverless 
 
 ```
 from fastapi import FastAPI, Request
@@ -49,7 +49,7 @@ def fastapi_app():
     return web_app
 ```
 
-This is how to read use secrets
+### This is how to read use secrets
 ```
 import os
 import modal
@@ -65,7 +65,7 @@ def some_function():
 ```
 
 
-This is how to make an api call with openai 
+### This is how to make an api call with openai 
 ```
 from openai import OpenAI
 client = OpenAI()
@@ -78,7 +78,7 @@ completion = client.chat.completions.create(
 ```
 
 
-Template pyproject.toml 
+### Template pyproject.toml 
 ```
 [tool.poetry]
 name = "api-agent"
@@ -101,6 +101,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 ```
 
+### Readme Setup 
 Include a README.md file that includes the following: 
 Document how to setup the API folder structure and the Dockerfile. 
 - Project Title
