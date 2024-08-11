@@ -91,21 +91,23 @@ When describing your API requirements:
 See the example prompts for what is working. 
 
 ## Run Endpoint with Modal
-
+Always review the main file before serving to check for bugs or updates that need to be made. 
 ```
 cd work_dir
-modal serve <ENTRY_POINT_FILE>.py 
+poetry install
+poetry shell
+modal serve main
 ```
 
 ## Deploy to Modal
-
+Always review the main file before serving to check for bugs or updates that need to be made. 
 ```
 cd work_dir
-modal deploy <ENTRY_POINT_FILE>.py 
+modal deploy main
 ```
 
 ## Modal Setup 
-To deploy a working endpoint that makes API calls to Anthropic or Open AI you will need to add the api keys to modal as secrtets.
+To deploy a working endpoint that makes API calls to Anthropic or Open AI you will need to add the api keys to modal as secrets.
 - [Modal Setup](https://modal.com/docs/guide)
 - [Modal Secrets](https://modal.com/docs/guide/secrets#using-secrets)
 
