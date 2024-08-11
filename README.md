@@ -18,25 +18,24 @@ API-Agent is a powerful tool designed to create micro Python APIs faster by leve
 
 The easiest way to get started with API-Agent is by using GitHub Codespaces or a Dev Container. This ensures you have a consistent development environment with all the necessary dependencies pre-installed.
 
-### Quick Start with GitHub Codespaces
+
+
+### Using Dev Containers with VsCode or Cursor
+
+1. Clone the repository or fork it to your GitHub account.
+2. Open the repository in VS Code with the Dev Containers extension installed. You will also need docker running. 
+3. VS Code or Cursor will detect the Dev Container configuration in the `.devcontainer` folder and prompt you to reopen the project in a container. Click "Reopen in Container" to proceed.
+4. The development environment will be automatically set up based on the configuration in the `.devcontainer` folder.
+
+For more information on using Dev Containers, refer to the [official documentation](https://code.visualstudio.com/docs/devcontainers/containers).
+
+### Using GitHub Codespaces
 
 You can quickly set up and start using API-Agent with GitHub Codespaces. Just click the button below to open this project in a Codespace:
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=839018747)
 
 This will create a new Codespace with all the necessary dependencies and configurations pre-installed, allowing you to start using API-Agent right away.
-
-
-
-
-### Using Dev Containers with VsCode or Cursor
-
-1. Clone the repository or fork it to your GitHub account.
-2. Open the repository in VS Code with the Dev Containers extension installed.
-3. VS Code or Cursor will detect the Dev Container configuration in the `.devcontainer` folder and prompt you to reopen the project in a container. Click "Reopen in Container" to proceed.
-4. The development environment will be automatically set up based on the configuration in the `.devcontainer` folder.
-
-For more information on using Dev Containers, refer to the [official documentation](https://code.visualstudio.com/docs/devcontainers/containers).
 
 ### Run API Agent Locally
 ⚠️ **Warning**: API-Agent has access to the file system and can perform remote code execution. It is strongly recommended to run it in a sandboxed environment or in a container.
@@ -91,21 +90,23 @@ When describing your API requirements:
 See the example prompts for what is working. 
 
 ## Run Endpoint with Modal
-
+Always review the main file before serving to check for bugs or updates that need to be made. 
 ```
 cd work_dir
-modal serve <ENTRY_POINT_FILE>.py 
+poetry install
+poetry shell
+modal serve main
 ```
 
 ## Deploy to Modal
-
+Always review the main file before serving to check for bugs or updates that need to be made. 
 ```
 cd work_dir
-modal deploy <ENTRY_POINT_FILE>.py 
+modal deploy main
 ```
 
 ## Modal Setup 
-To deploy a working endpoint that makes API calls to Anthropic or Open AI you will need to add the api keys to modal as secrtets.
+To deploy a working endpoint that makes API calls to Anthropic or Open AI you will need to add the api keys to modal as secrets.
 - [Modal Setup](https://modal.com/docs/guide)
 - [Modal Secrets](https://modal.com/docs/guide/secrets#using-secrets)
 
