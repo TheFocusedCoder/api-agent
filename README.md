@@ -21,6 +21,7 @@ The easiest way to get started with API-Agent is by using GitHub Codespaces or a
 To deploy a working endpoint you will need to have an Anthropic API key and modal set up. 
 - [Anthropic API Key](https://console.anthropic.com/account/keys)
 - [Modal Setup](https://modal.com/docs/guide)
+- [Modal Secrets](https://modal.com/docs/guide/secrets#using-secrets)
 
 ### Quick Start with GitHub Codespaces
 
@@ -68,7 +69,10 @@ For more information on using Dev Containers, refer to the [official documentati
 2. Set up your ANTHROPIC API key. ControlFlow expects OPENAI_API_KEY to be set so we need to set CONTROLFLOW_LLM_MODEL to use the Claude model.
     ```
     export export CONTROLFLOW_LLM_MODEL="anthropic/claude-3-5-sonnet-20240620"
-    export ANTHROPIC_API_KEY=<your-api-key>
+    ```
+
+    ```
+     export ANTHROPIC_API_KEY=<your-api-key>
     ```
 
 3. Run the agent
