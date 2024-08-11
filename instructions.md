@@ -57,9 +57,9 @@ import modal
 modal_app = modal.App()
 
 
-@modal_app.function(secrets=[modal.Secret.from_name("secret-keys")])
+@modal_app.function(secrets=[modal.Secret.from_name("secret-name")])
 def some_function():
-    secret_key = os.environ["MY_PASSWORD"]
+    secret_key = os.environ["SECRET"]
     ...
 
 ```
