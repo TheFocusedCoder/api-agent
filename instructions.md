@@ -24,10 +24,10 @@ Setting up the API folder structure:
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 
-from modal import Image, App, asgi_app
+from modal import Image, App, asgi_app, Secret
 
 web_app = FastAPI()
-modal_app = App("app-name")
+app = App("app-name")
 
 image = Image.debian_slim().pip_install("boto3")
 
@@ -43,7 +43,7 @@ async def bar(arg="world"):
     return HTMLResponse(f"<h1>Hello Fast {arg}!</h1>")
 
 
-@modal_app.function(image=image)
+@app.function(image=image)
 @asgi_app()
 def fastapi_app():
     return web_app
@@ -57,7 +57,7 @@ import modal
 modal_app = modal.App()
 
 
-@modal_app.function(secrets=[modal.Secret.from_name("secret-name")])
+@modal_app.function(secrets=[Secret.from_name("secret-name")])
 def some_function():
     secret_key = os.environ["SECRET"]
     ...
@@ -94,6 +94,7 @@ python = "^3.9"
 pydantic = "^2.8.2"
 modal = "^0.64.10"
 openai = "1.40.3"
+fastapi = "^0.112.0"
 
 
 [build-system]
