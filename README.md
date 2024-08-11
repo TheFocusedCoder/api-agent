@@ -18,10 +18,6 @@ API-Agent is a powerful tool designed to create micro Python APIs faster by leve
 
 The easiest way to get started with API-Agent is by using GitHub Codespaces or a Dev Container. This ensures you have a consistent development environment with all the necessary dependencies pre-installed.
 
-To deploy a working endpoint you will need to have an Anthropic API key and modal set up. 
-- [Anthropic API Key](https://console.anthropic.com/account/keys)
-- [Modal Setup](https://modal.com/docs/guide)
-
 ### Quick Start with GitHub Codespaces
 
 You can quickly set up and start using API-Agent with GitHub Codespaces. Just click the button below to open this project in a Codespace:
@@ -29,6 +25,7 @@ You can quickly set up and start using API-Agent with GitHub Codespaces. Just cl
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=839018747)
 
 This will create a new Codespace with all the necessary dependencies and configurations pre-installed, allowing you to start using API-Agent right away.
+
 
 
 
@@ -67,8 +64,12 @@ For more information on using Dev Containers, refer to the [official documentati
 
 2. Set up your ANTHROPIC API key. ControlFlow expects OPENAI_API_KEY to be set so we need to set CONTROLFLOW_LLM_MODEL to use the Claude model.
     ```
-    export CONTROLFLOW_LLM_MODEL="anthropic/claude-3-5-sonnet-20240620"
-    export ANTHROPIC_API_KEY=<your-api-key>
+
+    export export CONTROLFLOW_LLM_MODEL="anthropic/claude-3-5-sonnet-20240620"
+    ```
+
+    ```
+     export ANTHROPIC_API_KEY=<your-api-key>
     ```
 
 3. Run the agent
@@ -103,7 +104,10 @@ cd work_dir
 modal deploy <ENTRY_POINT_FILE>.py 
 ```
 
-
+## Modal Setup 
+To deploy a working endpoint that makes API calls to Anthropic or Open AI you will need to add the api keys to modal as secrtets.
+- [Modal Setup](https://modal.com/docs/guide)
+- [Modal Secrets](https://modal.com/docs/guide/secrets#using-secrets)
 
 ## Known Limitations 
 

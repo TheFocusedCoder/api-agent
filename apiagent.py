@@ -59,7 +59,8 @@ def run_agent():
         "Create a directory for the API",
         instructions="""
             Create a directory to store the API and any related files.
-            The directory should be named after the API. Return the path.
+            The directory should be named after the API and prepend with service_. 
+            Return the path.
             """,
         result_type=str,
         tools=[controlflow.tools.filesystem.mkdir],

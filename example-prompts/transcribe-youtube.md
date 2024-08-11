@@ -1,1 +1,0 @@
-Build an api with the endpoint /transcribe-youtube. It should accept a youtube url and return the transcript. Use pytube to get the id and youtube_transcript_api to get the transcript.
